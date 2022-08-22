@@ -1,0 +1,5 @@
+*.pyc
+*.dat
+*.json
+__pycache__/
+.token
