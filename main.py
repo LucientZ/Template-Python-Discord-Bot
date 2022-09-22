@@ -1,15 +1,26 @@
 import discord
+from discord import app_commands
 from discord.ext import commands
 
-client = commands.Bot(command_prefix = '$')
+class aclient(discord.Client):
+    def __init__(self):
+        super().__init__(command_prefix = 's-', activity = discord.Game(name = "s-help"), intents=discord.Intents.all())
+        self.synced = False
 
-@client.event
-async def on_ready():
-    print("Bot is ready.")
+    async def on_ready(self):
+        await self.wait_until_ready()
+        if not self.synced:
+            await tree.sync(guild = discord.Object(id = 873027766331797575))
+            self.synced = True
+        print(f"Bot is ready and logged in as {self.user}.")
 
-@client.command
-async def ping(ctx):
-    await ctx.channel.send(f"Pong! {int(client.latency * 1000)} ms")
+client = aclient()
+tree = app_commands.CommandTree(client)
+
+
+@tree.command(name = "ping", description = "says client latency")
+async def slash_ping(ctx: discord.Interaction, name: str):
+    await ctx.response.send_message(f"Pong! {int(client.latency * 1000)} ms")
 
 def write_token(TOKEN) -> None:
     """
