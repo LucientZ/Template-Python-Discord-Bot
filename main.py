@@ -16,6 +16,15 @@ class aclient(discord.Client):
 client = aclient()
 tree = app_commands.CommandTree(client)
 
+# Insert any testing code/functions here
+
+
+
+
+
+
+
+# End of test segment
 
 @tree.command(name = "ping", description = "says client latency")
 async def slash_ping(ctx: discord.Interaction, name: str):
