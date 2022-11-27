@@ -16,18 +16,16 @@ class aclient(discord.Client):
 client = aclient()
 tree = app_commands.CommandTree(client)
 
-# Insert any testing code/functions here
+## Slash Command Section ##
 
 
 
-
-
-
-
-# End of test segment
 
 @tree.command(name = "ping", description = "says client latency")
 async def slash_ping(ctx: discord.Interaction, name: str):
+    """
+    This is an example slash command. Most text-based commands will follow this format.
+    """
     await ctx.response.send_message(f"Pong! {int(client.latency * 1000)} ms")
 
 def write_token(TOKEN: str, filename: str) -> None:
