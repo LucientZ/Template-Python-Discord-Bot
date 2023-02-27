@@ -1,2 +1,2 @@
 # Template-Python-Discord-Bot
-This is a template bot using discord.py. Used for testing small features
+This repo is not supported anymore. If you are interested in my discord bot, please refer [here](https://github.com/LucientZ/DiscordPyBot)
